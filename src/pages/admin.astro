@@ -1,0 +1,96 @@
+---
+import '@lucarickli/static-cms/dist/style.css'
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Static CMS</title>
+  </head>
+  <body id="app">
+    <script>
+      import { init } from '@lucarickli/static-cms'
+      init('#app', { 
+        backend: {
+          repo: 'LucaRickli/www.rickli.cloud',
+          branch: 'main'
+        },
+        media_folder: 'public/assets',
+        collections: [
+          {
+            name: 'pages',
+            fields: [
+              {
+                name: 'layout',
+                label: 'Layout',
+                widget: 'string'
+              },
+              {
+                name: 'title',
+                label: 'Title',
+                widget: 'string'
+              },
+              {
+                name: 'body',
+                widget: 'markdown',
+                label: 'Body'
+              }
+            ],
+            files: [
+              {
+                name: 'datenschutz',
+                path: 'src/pages/datenschutz.md'
+              },
+              {
+                name: 'impressum',
+                label: 'Impressum',
+                path: 'src/pages/impressum.md'
+              }
+            ]
+          },
+          {
+            name: 'blog',
+            label: 'Blog Posts',
+            label_singular: 'Blog Post',
+            folder: 'src/content/blog',
+            create: true,
+            delete: true,
+            fields: [
+              {
+                name: 'title',
+                widget: 'string',
+                label: 'Post Title'
+              },
+              {
+                name: 'description',
+                widget: 'string',
+                label: 'Description'
+              },
+              {
+                name: 'pubDate',
+                widget: 'datetime',
+                format: 'MMM DD YYYY',
+                date_format: 'MMM DD YYYY',
+                time_format: false,
+                label: 'Publish Date'
+              },
+              {
+                name: 'heroImage',
+                widget: 'string',
+                label: 'Hero image',
+                required: false
+              },
+              {
+                name: 'body',
+                widget: 'markdown',
+                label: 'Post Body'
+              }
+            ]
+          }
+        ]
+      })
+    </script>
+  </body>
+</html>

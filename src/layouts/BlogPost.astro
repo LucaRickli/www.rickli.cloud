@@ -12,7 +12,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <Base title={title} description={description}>
   <main class="mb-8">
     <article
-      class="prose prose-h1:mb-6 prose-h2:mb-4 prose-h2:pb-1 prose-h2:mt-0 prose-h2:border-b prose-h3:mb-4 prose-h4:mb-3 prose-h5:mb-2 prose-h6:mb-1 prose-hr:my-6 px-3 py-2"
+      class="prose prose-h1:mb-6 prose-h2:mb-4 prose-h2:pb-1 prose-h2:mt-0 prose-h2:border-b prose-h3:mb-4 prose-h4:mb-3 prose-h5:mb-2 prose-h6:mb-1 prose-hr:my-6 px-3 py-2 max-w-none"
     >
       {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
       <h1 class="title">{title}</h1>
